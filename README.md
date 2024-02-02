@@ -44,7 +44,9 @@
 - types 业务模型封装
 
 # 快速启动
-go run main.go
+* 将.env.yaml配置中DB和Redis配置替换为自己的服务配置
+* 执行 go mod tidy 初始化项目依赖
+* 执行 go run main.go 启动服务
 
 
 
