@@ -1,4 +1,4 @@
-package library
+package configs
 
 import (
 	"io/ioutil"
@@ -15,7 +15,7 @@ func MustLoad(filename string, v interface{}) {
 	err = yaml.Unmarshal(content, v)
 
 	if err != nil {
-		panic("parse config content error:" + err.Error())
+		panic("parse configs content error:" + err.Error())
 	}
 	return
 }

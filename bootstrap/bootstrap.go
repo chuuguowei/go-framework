@@ -3,11 +3,11 @@ package bootstrap
 import (
 	"go-framework/config"
 	"go-framework/library/cache"
+	"go-framework/library/client"
+	"go-framework/library/configs"
 	"go-framework/library/logger"
 	"go-framework/library/mysql"
 	"go-framework/library/redisx"
-
-	"go-framework/library/client"
 )
 
 func MustInit(c config.Config) {
@@ -18,6 +18,8 @@ func MustInit(c config.Config) {
 	initRedis(c)
 
 	initCache(c)
+
+	initBizConfig(c)
 }
 
 func initMySQL(c config.Config) {
@@ -39,4 +41,9 @@ func initRedis(c config.Config) {
 func initCache(c config.Config) {
 	// 初始化缓存
 	client.CacheClient = library.NewCacheX(c)
+}
+
+func initBizConfig(c config.Config) {
+	// 初始化业务配置
+	configs.BizConfig = c
 }

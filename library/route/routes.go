@@ -18,9 +18,9 @@ func RegisterHandlers(r *gin.Engine) {
 	})
 
 	// 路由注册
-	r.GET("/", func(c *gin.Context) {
-		c.String(200, "hello world")
-	})
+	//r.GET("/", func(c *gin.Context) {
+	//	c.String(200, "hello world")
+	//})
 
 	// 用户
 	r.GET("/user", controller.IndexHandler())
