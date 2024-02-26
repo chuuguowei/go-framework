@@ -43,6 +43,9 @@
 - service 业务实现封装
 - types 业务模型封装
 
+## web
+前端页面及静态资源
+
 # 快速启动
 * 将.env.yaml配置中DB和Redis配置替换为自己的服务配置
 * 执行 go mod tidy 初始化项目依赖
