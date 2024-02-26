@@ -1,66 +1,26 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
-  <!-- import CSS -->
   <link rel="stylesheet" href="../static/css/index.css">
   <title>web前端</title>
 </head>
-<!-- import Vue before Element -->
-<script src="../static/js/vue.js"></script>
-<!-- import JavaScript -->
-<script src="../static/js/element-ui.js"></script>
-<script src="../static/js/vue-markdown.js"></script>
-
-<!-- 引入组件库 -->
-<script src="../static/js/jquery-3.2.1.min.js"></script>
-<script src="../static/js/util.js"></script>
-<script src="../static/js/clipboard.min.js"></script>
-
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <body>
-  <div id="app">
-    Hello World!
-  </div>
-
+<div id="app">{{ message }}</div>
 </body>
 
 <script>
-  Vue.use(VueMarkdown);
-  new Vue({
-    el: '#app',
-    data: {
+  const { createApp, ref } = Vue
 
-      cache: true,
-
-      // list projects
-      projectData: [],
-      textarea: '',
-      url: "",
-      total: 0,
-      pageSize: 6,
-
-      // card view actions
-      viewProject: [],
-    },
-    testFunc: function () {
-      this.testFunc(this.cPage);
-    },
-    methods: {
-      // test
-      testFunc(page) {
-        self = this;
-        self.url = "";
-        self.cPage = page;
-        ajaxJsonRequest("test?page=" + page + "&pagesize=" + self.pageSize, "get", "", function (json) {
-          self.data = json.data;
-          self.total = json.data.total;
-        }, function (json) {
-          self.$message("发生错误" + json);
-        })
+  createApp({
+    setup() {
+      const message = ref('Hello World, Go!')
+      return {
+        message
       }
     }
-  })
+  }).mount('#app')
 
 </script>
 

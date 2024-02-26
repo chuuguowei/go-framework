@@ -1,6 +1,5 @@
 /*
- utility methods
-
+ common methods
 */
 
 function ajaxJsonRequest(url, method, data, successfn, errorfn) {
